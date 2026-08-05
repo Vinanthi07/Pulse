@@ -7,7 +7,9 @@ authors = [
     { name = "vinanthi07", email = "manohari1009@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "typer>=0.27.1",
+]
 
 [project.scripts]
 pulse = "pulse:main"

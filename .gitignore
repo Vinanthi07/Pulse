@@ -1,0 +1,26 @@
+# Virtual Environment
+.venv/
+
+# Python Bytecode Cache
+__pycache__/
+*.py[cod]
+
+# Test Cache
+.pytest_cache/
+
+# Ruff Cache
+.ruff_cache/
+
+# Editor Files
+.vscode/
+.idea/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build Artifacts
+build/
+dist/
+*.egg-info/
