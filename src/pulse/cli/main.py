@@ -1,5 +1,5 @@
 import typer
-
+from pulse.metadata import get_version
 app = typer.Typer(invoke_without_command=True)
 
 
@@ -10,5 +10,5 @@ def main():
     """
     print("Pulse")
     print("AI Security Evaluation & Research Platform")
-    print("Version 0.1.0")
+    print(f"Version {get_version()}")
     print("Framework Initialized Successfully")
