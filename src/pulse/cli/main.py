@@ -3,9 +3,9 @@ import typer
 from pulse.attacks.prompt_injection import PromptInjectionAttack
 from pulse.config import DEBUG
 from pulse.metadata import get_version
-
+from pulse.models.dummy import DummyModel
 app = typer.Typer(invoke_without_command=True)
-
+model = DummyModel()
 
 @app.callback()
 def main():
@@ -26,4 +26,9 @@ def main():
     print(attack.name)
 
     print("\nPayload:")
-    print(attack.execute())
+    print(attack.PAYLOAD)
+
+    response = attack.execute(model)
+
+    print("\nModel Response:")
+    print(response)
