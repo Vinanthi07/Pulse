@@ -4,9 +4,10 @@ from pulse.attacks.prompt_injection import PromptInjectionAttack
 from pulse.config import DEBUG
 from pulse.metadata import get_version
 from pulse.models.dummy import DummyModel
+from pulse.evaluators.prompt_injection import PromptInjectionEvaluator
 app = typer.Typer(invoke_without_command=True)
 model = DummyModel()
-
+evaluator = PromptInjectionEvaluator()
 @app.callback()
 def main():
     """
@@ -29,6 +30,17 @@ def main():
     print(attack.PAYLOAD)
 
     response = attack.execute(model)
-
+    result = evaluator.evaluate(
+    payload=attack.PAYLOAD,
+    response=response,
+)
     print("\nModel Response:")
     print(response)
+    print("\nEvaluation Result")
+    print("-----------------")
+    print(f"Attack   : {result.attack}")
+    print(f"Model    : {result.model}")
+    print(f"Payload  : {result.payload}")
+    print(f"Response : {result.response}")
+    print(f"Verdict  : {result.verdict}")
+    print(f"Reason   : {result.reason}")
