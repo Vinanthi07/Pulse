@@ -368,6 +368,4 @@ Pulse is being designed and developed by **Vinanthi** as a long-term engineering
 ---
 
 > **Security Meets Intelligence.**
->
-> **Now... let's go build something that Future Vinanthi will be proud to look back on.** 🚀
 
