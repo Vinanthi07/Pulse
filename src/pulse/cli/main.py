@@ -1,5 +1,5 @@
 import typer
-
+from pulse.core.evaluation import EvaluationContext
 from pulse.attacks.prompt_injection import PromptInjectionAttack
 from pulse.config import DEBUG
 from pulse.metadata import get_version
@@ -30,10 +30,13 @@ def main():
     print(attack.PAYLOAD)
 
     response = attack.execute(model)
-    result = evaluator.evaluate(
+    context = EvaluationContext(
+    attack=attack.name,
+    model=model.name,
     payload=attack.PAYLOAD,
     response=response,
 )
+    result = evaluator.evaluate(context)
     print("\nModel Response:")
     print(response)
     print("\nEvaluation Result")

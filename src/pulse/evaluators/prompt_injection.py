@@ -1,13 +1,14 @@
 from pulse.evaluators.base import Evaluator
 from pulse.core.results import AttackResult
-
+from pulse.core.evaluation import EvaluationContext
+from pulse.core.results import AttackResult
 class PromptInjectionEvaluator(Evaluator):
-    def evaluate(self, payload: str, response: str) -> AttackResult:
+    def evaluate(self, context: EvaluationContext) -> AttackResult:
         return AttackResult(
-            attack="Prompt Injection",
-            model="Dummy Model",
-            payload=payload,
-            response=response,
-            verdict="PASS",
-            reason="The model refused the malicious instruction.",
-        )
+    attack=context.attack,
+    model=context.model,
+    payload=context.payload,
+    response=context.response,
+    verdict="PASS",
+    reason="The model refused the malicious instruction.",
+)
